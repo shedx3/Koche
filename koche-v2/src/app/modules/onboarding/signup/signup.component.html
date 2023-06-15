@@ -1,0 +1,340 @@
+<div class="page-section">
+  <div class="login-container">
+    <div class="wrap-login">
+      <form
+        class="login-form py-5 px-4"
+        [formGroup]="signUpForm"
+        (ngSubmit)="onSubmit()"
+        @fadeAnimation
+      >
+        <div class="login-form-title">
+          <h5 class="title">Create Account</h5>
+          <p class="sub-title">Enter your details to proceed</p>
+        </div>
+        <div class="row">
+          <div class="flex flex-nowrap">
+            <div class="col-md-6 col-sm-12 form-group mb-3 pe-2">
+              <label for="" class="font-normal text">First name <span style="color: red; top: 2px;"> *</span></label>
+              <div class="group-input forms">
+                <input
+                  [class.is-invalid]="
+                    signUpForm.get('firstName')?.invalid &&
+                    signUpForm.get('firstName')?.touched
+                  "
+                  class="form-control forms"
+                  placeholder=""
+                  type="text"
+                  formControlName="firstName"
+                  name="firstName"
+                />
+                <div
+                  *ngIf="
+                    (signUpForm.get('firstName')?.invalid &&
+                      signUpForm.get('firstName')?.touched) ||
+                    signUpForm.get('firstName')?.dirty
+                  "
+                >
+                  <mat-error
+                    *ngIf="signUpForm.get('firstName')?.errors?.['required']"
+                    >First name is required</mat-error
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12 form-group mb-3 ps-2">
+              <label for="" class="font-normal text">Last name<span style="color: red; top: 2px;"> *</span></label>
+              <div class="group-input">
+                <input
+                  [class.is-invalid]="
+                    signUpForm.get('lastName')?.invalid &&
+                    signUpForm.get('lastName')?.touched
+                  "
+                  class="form-control forms"
+                  placeholder=""
+                  type="text"
+                  formControlName="lastName"
+                  name="lastName"
+                />
+                <div
+                  *ngIf="
+                    (signUpForm.get('lastName')?.invalid &&
+                      signUpForm.get('lastName')?.touched) ||
+                    signUpForm.get('lastName')?.dirty
+                  "
+                >
+                  <mat-error
+                    *ngIf="signUpForm.get('lastName')?.errors?.['required']"
+                    >Last name is required</mat-error
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 form-group mb-3">
+            <label for="" class=" font-normal text">Email address <span style="color: red; top: 2px;"> *</span></label>
+            <div class="group-input">
+              <input
+                [class.is-invalid]="
+                  signUpForm.get('email')?.invalid &&
+                  signUpForm.get('email')?.touched
+                "
+                class="w-360 form-control"
+                placeholder=""
+                type="text"
+                formControlName="email"
+                name="email"
+              />
+              <div
+                *ngIf="
+                  (signUpForm.get('email')?.invalid &&
+                    signUpForm.get('email')?.touched) ||
+                  signUpForm.get('email')?.dirty
+                "
+              >
+                <mat-error *ngIf="signUpForm.get('email')?.errors?.['required']"
+                  >Email address is required</mat-error
+                >
+                <mat-error *ngIf="signUpForm.get('email')?.errors?.['email']"
+                  >Email address is invalid</mat-error
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-row me-3">
+            <div class="col-md-12 form-group mb-1">
+              <label for="" class="text font-normal">Nationality</label>
+              <div class="group-input">
+                <mat-select-country
+                  [class.has-error]="
+                    signUpForm.get('nationality')?.invalid &&
+                    signUpForm.get('nationality')?.touched
+                  "
+                  appearance="outline"
+                  class="w-1"
+                  [value]="defaultCountry"
+                  [countries]="predefinedCountries"
+                  placeHolder="Select Country"
+                  formControlName="nationality"
+                  name="nationality"
+                >
+                </mat-select-country>
+                <div
+                  *ngIf="
+                    signUpForm.get('nationality')?.invalid &&
+                    signUpForm.get('nationality')?.touched
+                  "
+                >
+                  <mat-error
+                    *ngIf="signUpForm.get('nationality')?.errors?.['required']"
+                    >Nationality is required</mat-error
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 form-group mb-1">
+              <label for="" class="font-normal text">Gender</label>
+              <div class="group-input">
+                <mat-form-field appearance="outline" class="h-6 d-block">
+                  <mat-select
+                    formControlName="gender"
+                    name="gender"
+                    placeholder="Gender"
+                    class="h-6"
+                 appearance ="outline"
+                  >
+                    <mat-option
+                      *ngFor="let item of selectGenderOptions.options"
+                      [value]="item"
+                      
+                    >
+                      {{ item }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <div
+                  *ngIf="
+                    (signUpForm.get('gender')?.invalid &&
+                      signUpForm.get('gender')?.touched) ||
+                    signUpForm.get('gender')?.dirty
+                  "
+                >
+                  <mat-error class="mt-4"
+                    *ngIf="signUpForm.get('gender')?.errors?.['required']"
+                    >Gender is required</mat-error
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 form-group mb-3">
+            <label for="" class="font-normal text">Password</label>
+            <div class="group-input">
+              <input
+                [class.is-invalid]="
+                  signUpForm.get('password')?.invalid &&
+                  signUpForm.get('password')?.touched
+                "
+                class="form-control"
+                placeholder="Password"
+                formControlName="password"
+                name="password"
+                [type]="type"
+                (focus)="showPasswordHints = true"
+                (blur)="showPasswordHints = false"
+              />
+              <span class="pwd">
+                <span (click)="toggleType()" class="material-icons-outlined">
+                  {{ type == "password" ? "visibility" : "visibility_off" }}
+                </span>
+              </span>
+            </div>
+            <div [class.show]="showPasswordHints" class="mt-2 password-hint">
+          
+
+              <!-- password length -->
+              <div
+                [ngClass]="{
+                  'password-entry--invalid':
+                    passwordLengthError || passwordRequiredError,
+                  'password-entry--valid':
+                    !passwordLengthError && !passwordRequiredError
+                }"
+                class="password-entry"
+              >
+                <span
+                
+                  class="material-icons"
+                  [textContent]="
+                    passwordLengthError || passwordRequiredError
+                      ? 'cancel'
+                      : 'check_circle'
+                  "
+                >
+                </span>
+                <span class="text">
+                  {{
+                    passwordRequiredError
+                      ? "A minimum of 12 characters"
+                      : "A minimum of 12 characters"
+                  }}
+                </span>
+              </div>
+              <!-- UpperLetter check -->
+          <div
+                [ngClass]="{
+                  'password-entry--invalid':
+                    passwordCapitalCaseError || passwordRequiredError,
+                  'password-entry--valid':
+                    !passwordCapitalCaseError && !passwordRequiredError
+                }"
+                class="password-entry"
+              >
+                <span
+                 
+                  class="material-icons"
+                  [textContent]="
+                    passwordCapitalCaseError || passwordRequiredError
+                      ? 'cancel'
+                      : 'check_circle'
+                  "
+                >
+                </span>
+                <span class="text">
+                  {{
+                    passwordRequiredError
+                      ? "At least one uppercase letter"
+                      : "At least one uppercase letter"
+                  }}
+                </span>
+              </div>
+             <!-- Number check -->
+               <div
+                [ngClass]="{
+                  'password-entry--invalid':
+                    passwordNumberError || passwordRequiredError,
+                  'password-entry--valid':
+                    !passwordNumberError && !passwordRequiredError
+                }"
+                class="password-entry"
+              >
+                <span
+                 
+                  class="material-icons"
+                  [textContent]="
+                    passwordNumberError || passwordRequiredError
+                      ? 'cancel'
+                      : 'check_circle'
+                  "
+                >
+                </span>
+                <span class="text">
+                  {{
+                    passwordRequiredError
+                      ? "At least one Number"
+                      : "At least one Number"
+                  }}
+                </span>
+              </div>
+              <!-- Special Casse -->
+              <div
+                [ngClass]="{
+                  'password-entry--invalid':
+                    passwordSpecialCharactersError || passwordRequiredError,
+                  'password-entry--valid':
+                    !passwordSpecialCharactersError && !passwordRequiredError
+                }"
+                class="password-entry"
+              >
+                <span
+                
+                  class="material-icons"
+                  [textContent]="
+                    passwordSpecialCharactersError || passwordRequiredError
+                      ? 'cancel'
+                      : 'check_circle'
+                  "
+                >
+                </span>
+                <span class="text">
+                  {{
+                    passwordRequiredError
+                      ? "At least one special character is required"
+                      : "At least one special character"
+                  }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-button mt-0">
+          <app-native-button
+            class="font-medium w-100 fz-18"
+            buttonClass="btn btn-primary w-100"
+            type="submit"
+            name="Create Account"
+            [block]="true"
+            (click)="onSubmit()"
+            [submitting]="loading"
+          ></app-native-button>
+        </div>
+        <div class="w-full text-start pt-4">
+          <span class="fz-16 font-normal" style="color: #677684">
+            I already have an account.
+          </span>
+
+          <a
+            [routerLink]="['/login']"
+            routerLinkActive="router-link-active text-decoration-underline-animate"
+            class="fz-16 font-normal"
+            style="color: #6938EF"
+          >
+            Log In
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

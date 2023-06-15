@@ -1,0 +1,161 @@
+
+input + .pwd > .material-icons-outlined {
+   color: #667085 !important;
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+input:focus + .pwd > .material-icons-outlined {
+  color: #667085 !important;
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+
+
+span.material-icons {
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pwd {
+ position: absolute;
+  right: 15%;
+  top: 15px;
+}
+
+.btn-text{
+  background: none !important;
+  border: none;
+  color: #05bf04;
+  cursor: pointer;
+  text-decoration: underline;
+}.mat-checkbox
+.mat {
+white-space:normal !important;
+}
+.layout {
+  flex-wrap: wrap;
+}
+
+.signup-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-decoration-underline-animate {
+  text-decoration: none;
+  transition: 0.3s ease;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.password-hint {
+  transition: height 0.3s;
+  padding-inline: 15px;
+  height: 0px;
+  width: 360px;
+  overflow: hidden;
+  background: #f4f6f9;
+}
+
+.password-hint.show {
+  height: 100px;
+}
+.password-hint .entry {
+  display: flex;
+  align-items: center;
+  padding-top: 13px;
+}
+.entry .text {
+  margin-left: 10px;
+}
+.entry span {
+  font-size: 13px;
+}
+.password-hint .entry span.material-icons {
+  color: #c1c7d0;
+}
+.password-hint .entry span.material-icons.checked {
+  // color: #4caf50;
+  animation: check-fade-in 0.3s;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 5px;
+  line-height: 32px;
+  color: #0d0f11;
+  text-align: start !important;
+}
+
+.sub-title {
+  font-size: 14px;
+  line-height: 24px;
+ color: #344054;
+  text-align: start;
+  margin-bottom: 32px;
+  
+}
+label {
+  color: #81909d !important;
+
+}
+
+@keyframes check-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.forms{
+  width: 173px;
+  height: 48px;
+}
+
+
+
+
+
+::ng-deep .mat-mdc-form-field {
+  width: 172px;
+ margin-right: 16px !important;
+ border-color: #dc3545 !important;
+ border-radius: 8px !important;
+}
+
+
+.star{
+  color: #dc3545;
+}
+
+.password-entry {
+  display: flex;
+  align-items: center;
+}
+.text {
+  font-size: 14px;
+  padding-bottom: 2px;
+  
+}
+
+.password-entry--invalid {
+  color: #dc3545;
+}
+
+.password-entry--valid {
+  color:  #12B76A;
+}
+.mat-form-field input {
+    height: 20px;
+    transition: height ease-in-out 400ms;
+}
+

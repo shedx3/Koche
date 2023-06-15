@@ -1,0 +1,17 @@
+<div class="authPageWrapper">
+  <section class="contentWrapper">
+    <div class="page-section">
+      <div class="trademark-section">
+        <div class="logo">
+          <img src="../../../assets/icons/koche logo.svg" width="90" alt="Logo" />
+        </div>
+        
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+  <section class="banner" *ngIf="showOnboardingComponent">
+ <app-carousel [images]="images" ></app-carousel>
+  </section>
+</div>
+

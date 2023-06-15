@@ -1,0 +1,67 @@
+<div class="page-section">
+  <div class="login-container">
+    <div class="wrap-login">
+      <form class="py-5 px-5" (ngSubmit)="onVerify()" @fadeAnimation>
+        <ng-template #inProcessNgTemp>
+          
+          <div class="login-form-title">
+         
+            <h5 class="title">Check your inbox</h5>
+            <p class="sub-title">
+              Enter the five (5) digit OTP code that has been sent 
+              to your Email.
+            </p>
+          
+          </div>
+
+          <div class="form-group mb-8 mt-4">
+            <div class="group-input ">
+              <ngx-otp-input
+                [config]="otpInputConfig"
+                (otpChange)="setOTP($event)"
+                class="mt-3"
+                #otp
+              ></ngx-otp-input>
+            </div>
+          </div>
+
+          <div class="form-button mt-0 mb-6">
+            <app-native-button
+              class="w-100 text-xs"
+              buttonClass="btn btn-primary w-100"
+              type="submit"
+              [block]="true"
+              name="Verify Now"
+              [submitting]="loading"
+            ></app-native-button>
+          </div>
+
+          <div  *ngIf="!loginKey"class="w-full text-start">
+          <span class="font fz-16" style="color: #667085">
+            OTP will expire in {{ timer$ | async | time}}
+          </span>
+
+          <a
+           role="button"
+              (click)="resendOtp()"
+              routerLinkActive="router-link-active"
+              class="fz-18 underline code-resend-link"
+          >
+           Resend Now
+          </a>
+        </div>
+        </ng-template>
+        <ng-container *ngIf="completed; else inProcessNgTemp">
+          <app-custom-alert
+            [callback]="onProcessCompleted"
+            [title]="alertTitle"
+            [message]="alertMessage"
+            [alertType]="alertType"
+            buttonName="Proceed to account"
+          ></app-custom-alert>
+        </ng-container>
+      </form>
+    </div>
+  </div>
+</div>
+
