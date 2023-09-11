@@ -15,6 +15,7 @@ export class CarouselComponent {
     } else {
       this.selectedIndex--;
     }
+    // gdcgdg
   }
   next() {
     if (this.selectedIndex == this.images.length - 1) {
