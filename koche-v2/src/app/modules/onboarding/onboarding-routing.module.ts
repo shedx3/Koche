@@ -17,12 +17,6 @@ const routes: Routes = [
       { path: 'otp', component: OtpVerificationComponent },
       { path: 'forgot-password', component:ForgotPasswordComponent },
       { path: 'reset-password', component:ResetPasswordComponent },
-      // { path: 'terms-of-use', component: TermsOfUseComponent },
-      // { path: 'otp-verification', component: OtpVerificationComponent },
-      // { path: 'phone-verification', component: SmsOtpVerificationComponent },
-      // { path: 'forgot-password', component: ForgotPasswordComponent },
-      // { path: 'change-password', component: ChangePasswordComponent },
-      // { path: 'privacy-policy', component: PrivacyPolicyComponent },
     ],
   },
 ];

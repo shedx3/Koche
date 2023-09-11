@@ -1,0 +1,184 @@
+<div>
+  <div class="flex flex-row h-20 nav">
+    <div class="ms-20 my-7">
+      <img
+        src="../../../../assets/images/koche logo.png"
+        width="90"
+        alt="Logo"
+      />
+    </div>
+    <div class="relative flex items-center my-5 h-10 w-32 rounded btn cursor-pointer">
+      <img src="../../../../assets/images/explore.png" class="-ms-4" height="22.5" width="16" alt="">
+      <p class="ex">Explore</p>
+          <img
+                    src="../../../../assets/icons/Drop.png"
+                    alt="search"
+                    height="13.5"
+                    width="10"
+                    class="absolute right-2 bottom-[13px] mr-4"
+                  />
+    </div>
+     <div class="relative mt-5 ms-6  cursor-pointer">
+                  <input
+                    type="text"
+                    placeholder="Search Courses"
+                    class="h-10 w-80 px-4 border-2 rounded-lg focus:outline-none"
+                  />
+                 <img
+                    src="../../../../assets/icons/search.svg"
+                    alt="search"
+                    height="13.5"
+                    width="13.5"
+                    class="absolute right-1 bottom-8 mr-4"
+                  />
+                </div>
+
+<div class="ms-[334px] my-[28px] cursor-pointer">  <img
+                    src="../../../../assets/icons/my courses.svg"
+                    alt="search"
+                    height="30"
+                    width="30"
+                    
+                  /> 
+               </div>
+
+               <div class="ms-3 mt-7"> <button class=" text-white text-base font-medium course"> My courses</button></div>
+
+               <div class="ms-8 mt-[27px] mb-[21px] cursor-pointer"  > <img
+                    src="../../../../assets/icons/Notification.svg"
+                    alt="search"
+                    height="32"
+                    width="32"
+                    
+                  /> </div>
+
+                  <div class="vertical"></div>
+                  <div class="flex ms-[22px] my-[25px] h-[34px] w-[34px]" > <img
+                        class="rounded "
+                        src="../../../../assets/icons/profile image.svg"
+                        alt="profile image"
+                        height="30"
+                        width="30"
+                      />  </div>
+                  <!-- <span class="material-symbols-rounded text-white mt-1 ms-1">
+arrow_drop_down
+</span> -->
+
+
+<!-- <button mat-icon-button [matMenuTriggerFor]="mainMenu" (mouseenter)="openMenu()"  (mouseleave)="closeMenu()" class="cursor-pointer bord">
+    <mat-icon class="text-white ms-1 mt-1 border-none">arrow_drop_down</mat-icon>
+  </button>
+
+
+<mat-menu #mainMenu="matMenu" >
+  <button mat-menu-item>My Profile</button>
+ 
+  <button mat-menu-item>Settings</button>
+  <button mat-menu-item>Contact Us</button>
+  <button mat-menu-item>Log Out</button>
+  <button mat-menu-item>Delete Account</button>
+</mat-menu> -->
+              
+ <div class="dropdown">
+    <button class="dropbtn text-white">
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#" routerLink="/profile" > <span>My Profile</span></a>
+      <a href="#"><Span>Settings</Span></a>
+      <a href="#"><span>Contact</span></a>
+      <a href="#"><span>Log Out</span></a>
+      <a href="#"><span>Delete Account</span></a>
+    </div>
+  </div>
+
+             
+
+  </div>
+ 
+  <router-outlet></router-outlet>
+  <section class="bg-blue-950 sides">
+    <footer class="foot mx-32 my-32 o">
+      <!-- footer -->
+      <div class="flex flex-col mt-24">
+        <div>
+          <img
+            src="../../../../assets/images/koche logo.png"
+            width="88"
+            height="22"
+            alt="upperlink logo"
+          />
+        </div>
+        <div class="mt-10 add">
+          <p>Power Tower</p>
+          <p class="add.">509, Queens Avenue, Road</p>
+          <p>Lagos</p>
+        </div>
+
+        <div class="mt-6 text-lg">
+          <p>+234 [0] 802 000 8881</p>
+        </div>
+        <div class="mt-4 text-lg">
+          <a class="underline">Contactus@koche.com</a>
+        </div>
+
+        <div class="mt-6 text-base">
+          <p class="">Follow us</p>
+        </div>
+        <div class="mt-4">
+          <ul class="social-media">
+            <li>
+              <img src="../../../../assets/images/twitter.png" alt="twitter " />
+            </li>
+            <li class="mx-6">
+              <img
+                src="../../../../assets/images/linkedin.png"
+                alt="linkedin"
+              />
+            </li>
+            <li>
+              <img
+                src="../../../../assets/images/facebook.png"
+                alt="Facebook"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="mt-24 ms-28 text-sm program">
+        <h2>Programs</h2>
+        <p>Data Analyst</p>
+        <p>Business Analyst</p>
+        <p>Product Design</p>
+        <p>Product Manager</p>
+        <p>Operations Manager in Tech</p>
+        <p>Financial Advisory in Tech</p>
+        <p>Digital Transformation Expert</p>
+        <p>Legal for Tech</p>
+        <p>Engineering Leadership</p>
+        
+      </div>
+      <!-- section 3 -->
+      <div class="mt-24 ms-36 program">
+        <h2>Useful Links</h2>
+        <p>About Us</p>
+        <p>FAQs</p>
+        <p>PaymentPlans</p>
+        <p>Contact Us</p>
+      </div>
+
+      <!-- Section 4 -->
+      <div class="mt-24 ms-36 program">
+        <h2>Terms & Conditions</h2>
+        <p>Privacy Policies</p>
+        <p>Cookie Policies</p>
+        <p>Payment Terms</p>
+      </div>
+   
+    </footer>
+  
+  </section>
+</div>
+

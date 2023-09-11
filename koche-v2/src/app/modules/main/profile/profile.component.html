@@ -1,0 +1,157 @@
+<div class="relative profile">
+  <!-- <app-settings-profile-avatar></app-settings-profile-avatar> -->
+<div class="absolute mx-[300px] border border-solid rounded border-[#EAECF0] mt-[63px] mb-[261px] px-12 pt-12 pb-[132px]">
+  
+    <div class="flex items-center ">
+        
+  <div class="md:w-3/4 sm:w-full">
+       <h1 class="font-medium text-2xl ">My Profile</h1>
+    <div class="flex items-center">
+        
+      <div class="-ms-4 -mt-9">
+         <!-- <P>My Profile</P> -->
+        <div
+          class=" signup-type upload bg-secondary cursor-pointer
+                 {{ photo?.uploading ? 'uploading' : (photo?.uploading === false && photo?.image ? 'showing' : '') }}"
+          (click)="trigger(selfie)"
+        >
+          <input
+            type="file"
+            class="hidden"
+            name="photo"
+            #selfie
+            accept="image/jpg, image/png"
+            (change)="openUpload($event)"
+          />
+          <div class="action-info">
+            <div class="user-icon">
+              <img
+                [src]="
+                  profilePicture === 'null'
+                    ? 'assets/icons/profile image.svg'
+                    : 'assets/icons/profile image.svg'
+                "
+                class="circle-image"
+                alt="profile"
+              />
+            </div>
+          </div>
+          <div class="preview">
+            <div class="image"
+             [style.backgroundImage]="'url(' + photo?.image + ')'"></div>
+            <div class="loading flex-c">
+              <div class="la-ball-clip-rotate">
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+         
+        </div>
+      </div>
+
+      <div class="ms-4">
+        <div class="user-name">
+          <h3  class="text-kocheGreen ">Upload Image</h3>
+          
+          
+        </div>
+        <div class="text-[#98A2B3] font-medium text-xs -mt-1">
+          <span>PNG,JPG up to 10MB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="">
+    <div class="">
+      <form class="edit-profile-form" [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm)">
+        <div class="flex flex-row justify-between mb-2">
+          <div class="col-span-1">
+            <label for="">First Name</label>
+            <input 
+              [class.is-invalid]="profileForm.get('firstName')?.invalid && profileForm.get('firstName')?.touched"
+              formControlName="firstName" type="text" class="form-control" />
+          </div>
+          <div class="ms-4">
+            <label for="">Last Name</label>
+            <input
+              [class.is-invalid]="profileForm.get('lastName')?.invalid && profileForm.get('lastName')?.touched"
+              formControlName="lastName" type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="flex flex-row mb-2">
+          <div class="">
+            <label for="">Email Address</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="email"
+            />
+          </div>
+          <div class="ms-4">
+            <label for="">Phone Number</label>
+            <div class="group-input">
+              <!-- <ngx-mat-intl-tel-input
+                [enablePlaceholder]="true"
+                [enableSearch]="true"
+                [preferredCountries]="['ng', 'us']"
+                name="phoneNumber"
+                class="form-control"
+                formControlName="phoneNumber"
+                #phoneNumber
+              ></ngx-mat-intl-tel-input> -->
+              <input type="text" class="form-control">
+              <mat-error
+                *ngIf="profileForm.controls['phoneNumber']?.errors?.['validatePhoneNumber']"
+                >Invalid Number</mat-error
+              >
+            </div>
+          </div>
+        </div>
+         <div class="flex flex-row mb-2">
+          <div class="col-span-1">
+            <label for="">Gender</label>
+            
+              <select
+                
+                name="gender"
+                autocomplete="gender"
+                formControlName="gender"
+                    [class.is-invalid]="profileForm.get('firstName')?.invalid && profileForm.get('firstName')?.touched"
+              formControlName="firstName" type="text" class="form-control"
+              >
+                <option
+                  *ngFor="let options of Gender"
+                
+                >
+                  {{ options }}
+                </option>
+              </select>
+          
+          </div>
+          <div class="ms-4">
+            <label for="">Address</label>
+            <input
+              [class.is-invalid]="profileForm.get('lastName')?.invalid && profileForm.get('lastName')?.touched"
+              formControlName="lastName" type="text" class="form-control" />
+          </div>
+        </div>
+        <div class="mb-2">
+        </div>
+
+        <div class="flex justify-end mt-4 ">
+          <app-native-button
+          
+            [block]="false"
+            buttonClass="btn btn-primary"
+            [name]="'Save Changes'"
+            style="min-width: 50%;"
+          ></app-native-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

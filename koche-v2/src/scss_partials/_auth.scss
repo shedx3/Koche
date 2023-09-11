@@ -1,0 +1,80 @@
+/* AUTH PAGES  */
+.authPageWrapper {
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+
+
+  label {
+    color: #81909d !important;
+  }
+  .banner {
+    // display: flex;
+    // flex-direction: column;
+ 
+    background-color: #F4F6F9;
+    border-radius: 16px;
+    background-repeat: no-repeat;
+    background-position: 75% 25%;
+    width: 50vw;
+    height: 90%;
+    position: fixed;
+    top: 38px;
+    bottom: 63px;
+    right: 48px;
+
+    &__content {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-top: 20px;
+
+      .left {
+        &__icon {
+          display: block;
+          height: 32px;
+          width: 32px;
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+
+        &__title {
+          font-size: 16px;
+          font-weight: 600;
+          color: #0D0F11;
+        }
+        &__text {
+          font-size: 14px;
+          font-weight: 400;
+          color: #677684;
+          max-width: 335px;
+        }
+      }
+    }
+
+    &__container { 
+      display: grid;
+      place-content: center;
+      height: 100%;
+      
+    }
+  }
+
+  .contentWrapper {
+    margin-right: 700px;
+    // overflow: hidden;
+    background: #ffffff;
+  }
+
+  @media screen and (max-width: 900px) {
+    .banner {
+      display: none;
+      transition: all 0.3s ease;
+    }
+    .contentWrapper {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.profile{
+    height: 100vh;
+}
+.signup-type.upload {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 3em 15px 1em 15px;
+}
+
+.signup-type.upload > div {
+  display: none;
+}
+
+.signup-type.upload .action-info {
+  display: block;
+  text-align: center;
+}
+
+.signup-type.upload .preview .image,
+.signup-type.upload .preview .loading {
+  width: 120px;
+  height: 120px;
+  border-radius: 1000px !important;
+  overflow: hidden;
+  border: 2px solid rgba(var(--accent), 0.14);
+  position: relative;
+}
+
+.signup-type.upload .preview .image {
+  display: block;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.signup-type.upload.uploading {
+  padding: 0;
+}
+
+.signup-type.upload.uploading .preview {
+  display: block;
+}
+
+.signup-type.upload.uploading .preview .image {
+  display: none;
+}
+
+.signup-type.upload.showing {
+  padding: 0;
+}
+
+.signup-type.upload.showing .action-info {
+  display: none;
+}
+
+.signup-type.upload.showing .preview {
+  display: block;
+}
+
+.signup-type.upload.showing .preview .loading {
+  display: none;
+}
+
+.signup-type.upload.uploading .action-info {
+  display: none;
+}
+
+.signup-type.upload .action-info .user-icon img {
+  width: 100px;
+  height: 100px;
+  border-radius: 1000px !important;
+  overflow: hidden;
+  border: 2px solid rgba(var(--accent), 0.14);
+  position: relative;
+}
+label{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 16px;
+    color:#344054 ;
+}
+
+
+
+
+.edit-profile-form label {
+  color: #81909d;
+  font-size: 14px;
+}
+.edit-profile-form input {
+  color: #0d0f11 !important;
+}
+
+
+
+

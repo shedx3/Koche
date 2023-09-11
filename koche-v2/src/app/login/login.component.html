@@ -1,0 +1,137 @@
+
+<div class="authPageWrapper">
+  <section class="contentWrapper">
+    <div class="page-section">
+      <div class="trademark-section">
+        <div class="logo">
+          <img src="../../assets/icons/koche logo.svg" width="90" alt="Logo" />
+        </div>
+        
+      </div>
+      <div class="login-container">
+        <div class="wrap-login">
+          <form
+            [formGroup]="loginForm"
+            (ngSubmit)="onLoginSubmit()"
+            class="login-form py-5 px-4"
+            @fadeAnimation
+          >
+            <div class="login-form-title">
+              <!-- <small class="s__title pb-3"> Welcome back! </small> -->
+              <h5 class="title">Log in</h5>
+              <p class="sub-title">Enter your email and password to log in</p>
+            </div>
+
+            <div class="form-group mb-3">
+              <label for="" class="font-normal text">Email address</label>
+              <div class="group-input">
+                <input
+                  [class.is-invalid]="
+                    loginForm.get('email')?.invalid &&
+                    loginForm.get('email')?.touched
+                  "
+                  class="form-control"
+                  placeholder="Email"
+                  type="text"
+                  formControlName="email"
+                  name="email"
+                />
+                <div
+                  *ngIf="
+                    (loginForm.get('email')?.invalid &&
+                      loginForm.get('email')?.touched) ||
+                    loginForm.get('email')?.dirty
+                  "
+                >
+                  <mat-error
+                    *ngIf="loginForm.get('email')?.errors?.['required']"
+                    >Email address is required</mat-error
+                  >
+                  <mat-error *ngIf="loginForm.get('email')?.errors?.['email']"
+                    >Email address is invalid</mat-error
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-3">
+              <label for="" class="font-normal text">Password</label>
+              <div class="group-input">
+                <input
+                  [class.is-invalid]="
+                    loginForm.get('password')?.invalid &&
+                    loginForm.get('password')?.touched
+                  "
+                  class="form-control"
+                  placeholder="Password"
+                  formControlName="password"
+                  name="password"
+                  [type]="type"
+                />
+                <div
+                  *ngIf="
+                    (loginForm.get('password')?.invalid &&
+                      loginForm.get('password')?.touched) ||
+                    loginForm.get('password')?.dirty
+                  "
+                >
+                  <mat-error
+                    *ngIf="loginForm.get('password')?.errors?.['required']"
+                    >Password is required</mat-error
+                  >
+                </div>
+                <span class="pwd">
+                  <span (click)="toggleType()" class="material-icons-outlined">
+                    {{ type == "password" ? "visibility" : "visibility_off" }}
+                  </span>
+                </span>
+              </div>
+            </div>
+
+            <div class="w-full text-start pt-2 underline">
+              <a
+                [routerLink]="['/onboard/forgot-password']"
+                routerLinkActive="router-link-active"
+                style="color: #6938EF"
+                class="fz-16 font-medium animate"
+              >
+                Forgot password?
+              </a>
+            </div>
+
+            <div class="form-button mt-4">
+              <app-native-button 
+              class="fz-18 font-medium w-100"
+                buttonClass="btn btn-primary w-100"
+                name="Log In"
+                type="submit"
+                [block]="true"
+                [submitting]="loading">
+                
+              </app-native-button>
+           
+            </div>
+
+            <div class="w-full text-start pt-4">
+              <span class="fz-14"> Don't have an account? </span>
+
+              <a
+
+                routerLink="/onboard/signup"
+                routerLinkActive=" text-decoration-underline-animate"
+                class="fz-16 font-normal"
+                style="color: #6938EF"
+              >
+                Create Account
+              </a>
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="banner">
+  <app-carousel [images]="images"></app-carousel>
+  
+  </section>
+</div>

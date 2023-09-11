@@ -1,0 +1,46 @@
+<div class=" absolute container">
+  <img
+    *ngFor="let image of images; let i = index"
+    [src]="image.image"
+    [alt]="image.title"
+    [ngClass]="{ 'image-active': selectedIndex === i }"
+    class="fade"
+  />
+
+  <div class="card ">
+    <q class="font-medium self-stretch leading-10 text-white yes"> Koche is designed to help educators deliver educational content to their students.</q>
+   <div class="flex flex-row">
+    <div class="">
+      <h2 class="font-medium text-lg text-white self-stretch ">Founder, Catalog</h2>
+      <small class="font-normal text-base text-white self-stretch sub"> Web Design Agency </small>
+      
+    </div>
+    <div class="flex justify-between ms-72  ">
+    
+   <div class="flex items-center justify-center gap-12 rounded-full h-14 w-14 border  border-gray-300 backdrop-filter backdrop-blur-lg circle"  [ngClass]="{'end': selectedIndex == 0}"(click)="prev()">
+     <button *ngIf="controls" class="flex items-center justify-center text-white ">
+      <i
+        class="fas fa-arrow-left icon-prev"
+        
+      >
+      </i>
+    </button>
+   </div>
+    
+    <div class="flex items-center justify-center gap-12 rounded-full h-14 w-14 ms-8 border border-gray-300 backdrop-filter backdrop-blur-lg  circle"(click)="next()" [ngClass]="{'end': selectedIndex ==images.length - 1}">
+      <button *ngIf="controls" class="flex items-center justify-center text-white">
+      <i
+       
+        
+         class="fa fa-arrow-right icon-next"
+      >
+      </i>
+      
+    </button>
+    </div>
+   </div>
+   </div>
+
+  </div>
+</div>
+

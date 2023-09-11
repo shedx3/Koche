@@ -1,0 +1,20 @@
+<div @fadeAnimation class="text-center">
+        <div class="custom-alert-icon mb-3">
+            <img [src]="icon" alt="alert_icon" width="300" class="img-fluid">
+        </div>
+        <div class="px-3">
+            <div class="color-primary">
+                <h5 class="fz-16 fw-bold pb-2">
+                    {{title}}
+                </h5>
+            </div>
+            <div class="w-full text-center pb-2">
+                <small class="fz-12">
+                    {{message}}
+                </small>
+            </div>
+        </div>
+        <div class="mt-4">
+            <app-native-button (click)="btnClicked()" [block]="false" buttonClass="btn btn-primary" [name]="buttonName"></app-native-button>
+        </div>
+</div>
